@@ -7,7 +7,7 @@ public class playercontrols : MonoBehaviour
 {
     public float speed = 0;
     public TextMeshProUGUI CountText;
-    public GameObject WinTextObject;
+    /*public GameObject WinTextObject;*/
 
     private Rigidbody rb;
     private int count;
@@ -20,8 +20,8 @@ public class playercontrols : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         count = 0;
 
-        SetCountText();
-        WinTextObject.SetActive(false);
+        /*SetCountText();
+        WinTextObject.SetActive(false);*/
     }
 
     void OnMove(InputValue movementValue)
@@ -31,7 +31,7 @@ public class playercontrols : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-
+    /*
     void SetCountText()
     {
         CountText.text = "Count:" + count.ToString();
@@ -40,6 +40,7 @@ public class playercontrols : MonoBehaviour
             WinTextObject.SetActive(true);
         }
     }
+    */
 
     void FixedUpdate()
     {
@@ -47,7 +48,7 @@ public class playercontrols : MonoBehaviour
 
         rb.AddForce(movement * speed);
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("PickUp"))
@@ -58,4 +59,5 @@ public class playercontrols : MonoBehaviour
             SetCountText();
         }
     }
+    */
 }
