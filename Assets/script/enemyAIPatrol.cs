@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NewBehaviourScript1 : MonoBehaviour
+public class enemyAIPatrol : MonoBehaviour
 {
     GameObject player;
 
@@ -20,7 +20,7 @@ public class NewBehaviourScript1 : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("Cow");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class NewBehaviourScript1 : MonoBehaviour
 
     void Patrol()
     {
-        if (!walkpointSet) ;
+        if (!walkpointSet) SearchForDest();
         if (walkpointSet) agent.SetDestination(destPoint);
         if (Vector3.Distance(transform.position, destPoint) < 10) walkpointSet = false;
     }
